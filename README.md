@@ -1,4 +1,5 @@
-# Flet Image Carousels 
+# Flet Images Carousels 
+Images Carousles for Flet, python framework
 1) Automatic image carousel (UserControl) + example
 2) Basic image carousel (UserControl) + example
 
