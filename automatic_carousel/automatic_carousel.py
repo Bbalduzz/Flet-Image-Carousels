@@ -34,25 +34,16 @@ class AutomaticImageCarousel(UserControl):
 		while True:
 		    indexes[ind-1] = Icon(icons.CIRCLE_OUTLINED,size=11)
 		    indexes[ind] = Icon(icons.CIRCLE_ROUNDED,size=15)
-		    if self.descriptive == False:
-		    	self.carousel.content = Column([
+		    self.carousel.content = Column([
 		        Container(
 		                Image(src=self.images_list[ind][0],fit=ImageFit.FILL, border_radius=border_radius.all(5),),
 		                border=border.all(1, colors.BLACK),
 		                border_radius=border_radius.all(5),
 		            ),
 		        Row(indexes,alignment=MainAxisAlignment.CENTER),
-		    ], horizontal_alignment=CrossAxisAlignment.CENTER,)
-		    else:
-			    self.carousel.content = Column([
-			        Container(
-			                Image(src=self.images_list[ind][0],fit=ImageFit.FILL, border_radius=border_radius.all(5),),
-			                border=border.all(1, colors.BLACK),
-			                border_radius=border_radius.all(5),
-			            ),
-			       	Text(self.images_list[ind][1]),
-			        Row(indexes,alignment=MainAxisAlignment.CENTER),
-			    ], horizontal_alignment=CrossAxisAlignment.CENTER,)
+		    ])
+		    if self.descriptive == True:
+			    self.carousel.content.insert(1, Text(self.images_list[ind][1]))
 		    ind += 1
 		    if ind == len(self.images_list):
 		        ind = 0
